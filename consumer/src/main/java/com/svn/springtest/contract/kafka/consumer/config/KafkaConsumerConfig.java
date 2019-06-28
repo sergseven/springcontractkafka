@@ -13,7 +13,7 @@ public class KafkaConsumerConfig {
 
   @KafkaListener(topics = "springcontracttest")
   public void listen(@Payload String message) {
-    log.info("Received Messasge in group - group-id: %s", message);
+    log.info("Received Messasge in group - group-id: {}", message);
   }
 
 }
