@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 
 @Configuration
@@ -12,8 +14,10 @@ import org.springframework.messaging.handler.annotation.Payload;
 public class KafkaConsumerConfig {
 
   @KafkaListener(topics = "springcontracttest")
-  public void listen(@Payload String message) {
-    log.info("Received Messasge in group - group-id: {}", message);
+  public void listen(
+      @Header(value = KafkaHeaders.RECEIVED_MESSAGE_KEY, required = false) String messageKey,
+      @Payload String message) {
+    log.info("Received Messasge in group - group-id[{}]: {}", messageKey, message);
   }
 
 }

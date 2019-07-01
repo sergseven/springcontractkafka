@@ -1,5 +1,6 @@
 package producer;
 
+import java.time.Clock;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,18 +18,24 @@ public class ProducerApplication {
     SpringApplication.run(ProducerApplication.class, args);
   }
 
-  @Autowired
-  private KafkaTemplate<String, String> template;
-
   @Bean
-  public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-    return args -> {
-      log.info("App started.");
-
-      template.send("springcontracttest", "foo2");
-
-      log.info("Message(s) sent.");
-    };
+  public Clock clock(){
+    return Clock.systemUTC();
   }
+
+//  @Autowired
+//  private KafkaTemplate<String, String> template;
+//
+//  @Bean
+//  public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+//    return args -> {
+//      log.info("App started.");
+//
+//      template.send("initialspringcontracttest", "foo_key2", "foo2");
+////      template.send("springcontracttest", "foo_key2", "foo2");
+//
+//      log.info("Message(s) sent.");
+//    };
+//  }
 
 }
