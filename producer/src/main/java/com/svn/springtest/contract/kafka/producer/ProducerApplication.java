@@ -1,4 +1,4 @@
-package producer;
+package com.svn.springtest.contract.kafka.producer;
 
 import java.time.Clock;
 import lombok.extern.slf4j.Slf4j;

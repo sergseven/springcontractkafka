@@ -1,7 +1,7 @@
 /*
  * Copyright 2019 Walgreens Co.
  */
-package producer.api;
+package com.svn.springtest.contract.kafka.producer.api;
 
 import java.time.Clock;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +10,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import producer.dto.AccountUpdatedDto;
+import com.svn.springtest.contract.kafka.producer.dto.AccountUpdatedDto;
 
 @RestController
 @RequestMapping("/account")

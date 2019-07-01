@@ -1,7 +1,7 @@
 /*
  * Copyright 2019 Walgreens Co.
  */
-package producer.dto;
+package com.svn.springtest.contract.kafka.producer.dto;
 
 import java.time.Instant;
 import lombok.Builder;
